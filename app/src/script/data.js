@@ -1,10 +1,13 @@
 // communicates with backend and ensures data passage is right
 //import { PostCode } from "./post";
 
+let userid;
+
 let login = false;
 let rm = localStorage.getItem('echoecho_rememberLogin');
 if (rm != undefined) {
     login = true;
+    userid = rm;
 }
 
 // login authentication
@@ -24,13 +27,12 @@ function saveLog(log) {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;      // months zero-based
     const day = date.getDate();
-    console.log(year, month, day);
-    console.log(`logging ${log} for ${date}`);
+    date = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
     // TRANSFER TO BACKEND
     $.ajax({
         type: 'POST',
         url: 'http://localhost:3000/post',
-        data: { "name": 'God', "date": date, "echo": log},
+        data: { "name": userid, "date": date, "echo": log},
         success: function(resultData) {
             alert(resultData);
          }
@@ -70,12 +72,13 @@ function auth(type) {
     login = true;
     titleCheckLogin();
     swapToPage('title');
+    userid = user;
     // clear vals
     $(`#${type}-username`).val('');
     $(`#${type}-password`).val('');
     // saving preferences
     if ($(`#${type}-remember`).hasClass('checked')) {
-        localStorage.setItem('echoecho_rememberLogin', 'true');
+        localStorage.setItem('echoecho_rememberLogin', userid);
     } else {
         localStorage.removeItem('echoecho_rememberLogin');
     }
