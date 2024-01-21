@@ -32,18 +32,16 @@ $('.page-nav').click(function() {
 
 function swapToPage(id) {
     let speed = 250;
-    if ($('.current-page').data('page') != id) {
-        $('.current-page').toggleClass('current-page').fadeOut(speed);
-        setTimeout(() => {
-            $(`#page_${id}`).toggleClass('current-page').fadeIn(speed);
-            // show nav bar for every page that's not in the list
-            if (['title', 'day-something', 'day-nothing', 'login', 'signup'].includes(id)) {
-                $('nav').fadeOut(speed);
-            } else {
-                $('nav').fadeIn(speed);
-            }
-        }, speed);
-    }
+    $('.current-page').toggleClass('current-page').fadeOut(speed);
+    setTimeout(() => {
+        $(`#page_${id}`).toggleClass('current-page').fadeIn(speed);
+        // show nav bar for every page that's not in the list
+        if (['title', 'day-something', 'day-nothing', 'login', 'signup'].includes(id)) {
+            $('nav').fadeOut(speed);
+        } else {
+            $('nav').fadeIn(speed);
+        }
+    }, speed);
 }
 
 // set up navigation bar img

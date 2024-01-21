@@ -147,10 +147,12 @@ input {
 }
 #good-things-list {
     margin-top: 10px;
+    height: fit-content;
+    max-height: 500px;
+    overflow-y: scroll;
 }
 .footer {
-    position: absolute;
-    bottom: 20px;
+    margin-top: 50px;
 }
 
 /* stats */
