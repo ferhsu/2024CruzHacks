@@ -1,5 +1,3 @@
-const { get } = require("mongoose");
-
 // handles calender specifications and uses
 let calendar;   // FullCalendar object
 
@@ -73,17 +71,17 @@ function colorCalendar() {
     // #fc-dom-1 holds the month title
     let month = months.indexOf($("#fc-dom-1").html().slice(0, -5).toLowerCase());
     let year = $("#fc-dom-1").html().slice(-4);
-    console.log(year, month);
+    console.log(logData, year in logData, month in logData[year]);
     if (year in logData && month in logData[year]) {
+        console.log(Object.keys(logData[year][month]))
         Object.keys(logData[year][month]).forEach(day => {
-            $(`.fc-day[data-date="${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}"]`).toggleClass('good-day');
+            $(`.fc-day:not(.good-day)[data-date="${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}"]`).toggleClass('good-day');
         });
     }
 }
 
 // pulls up all the good things from that day and displays it
 function goodThings(year, month, day) {
-    console.log(year, month, day);
     if (year in logData && month in logData[year] && day in logData[year][month]) {
         swapToPage('day-something');
         let goodThingsList = logData[year][month][day];

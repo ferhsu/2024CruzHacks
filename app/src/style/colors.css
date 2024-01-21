@@ -1,13 +1,13 @@
 body.light {
-    --accent-text: #dc6565;
-    --accent: #e9b4b4;
+    --accent-text: #e097f4;
+    --accent: #e1c5f3;
     --text: #000000;
     --half-transparent: #0000006b;
     --nearly-transparent: #00000025;
     --transparent: #00000000;
     --background: #ffffff;
     /* calendar */
-    --fc-today-bg-color: #e9b4b466;
+    --fc-today-bg-color: #e1c5f366;
     --fc-button-bg-color: var(--nearly-transparent);
     --fc-button-border-color: var(--transparent);
     --fc-button-text-color: var(--text);
@@ -16,14 +16,14 @@ body.light {
 }
 
 body.dark {
-    --accent-text: #dc6565;
-    --accent: #622c2c;
+    --accent-text: #65a6dc;
+    --accent: #2c4f62;
     --text: #dcdcdc;
     --half-transparent: #ffffff6b;
     --nearly-transparent: #fcfcfc2d; 
     --background: #000000;
     /* calendar */
-    --fc-today-bg-color: #622c2c7f;
+    --fc-today-bg-color: #2c4f627f;
     --fc-button-bg-color: var(--nearly-transparent);
     --fc-button-border-color: var(--transparent);
     --fc-button-text-color: var(--text);

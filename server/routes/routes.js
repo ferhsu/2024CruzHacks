@@ -46,8 +46,33 @@ router.post('/post', async (req, res) => {
 //Get all Method
 router.get('/getAll', async (req, res) => {
     try{
-        const data = await Model.echo.find();
-        res.json(data)
+        const data = await Model.echo.find().select('name date echo');
+        const jason = {};
+        data.forEach(async (j) => {
+            if (!(jason[j['name']])) {
+                jason[j['name']] = {};
+                jason[j['name']][j['date'].getFullYear()] = {};
+                jason[j['name']][j['date'].getFullYear()][j['date'].getMonth()+1] = {};
+                jason[j['name']][j['date'].getFullYear()][j['date'].getMonth()+1][j['date'].getDate()+1] = [j['echo']];
+            }
+            else if (!(jason[j['name']][j['date'].getFullYear()])) {
+                jason[j['name']][j['date'].getFullYear()] = {};
+                jason[j['name']][j['date'].getFullYear()][j['date'].getMonth()+1] = {};
+                jason[j['name']][j['date'].getFullYear()][j['date'].getMonth()+1][j['date'].getDate()+1] = [j['echo']];
+            }
+            else if (!(jason[j['name']][j['date'].getFullYear()][j['date'].getMonth()+1])) {
+                jason[j['name']][j['date'].getFullYear()][j['date'].getMonth()+1] = {};
+                jason[j['name']][j['date'].getFullYear()][j['date'].getMonth()+1][j['date'].getDate()+1] = [j['echo']];
+            }
+            else if (!(jason[j['name']][j['date'].getFullYear()][j['date'].getMonth()+1][j['date'].getDate()+1])) {
+                jason[j['name']][j['date'].getFullYear()][j['date'].getMonth()+1][j['date'].getDate()+1] = [j['echo']];
+            }
+            else {
+                jason[j['name']][j['date'].getFullYear()][j['date'].getMonth()+1][j['date'].getDate()+1].push(j['echo']);
+            }
+        });
+        console.log(jason);
+        res.json(jason)
     }
     catch(error){
         res.status(500).json({message: error.message})

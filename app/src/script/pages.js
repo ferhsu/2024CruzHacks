@@ -32,14 +32,20 @@ $('.page-nav').click(function() {
 
 function swapToPage(id) {
     let speed = 250;
+    console.log('called to', id)
     $('.current-page').toggleClass('current-page').fadeOut(speed);
     setTimeout(() => {
         $(`#page_${id}`).toggleClass('current-page').fadeIn(speed);
+        console.log($(`#page_${id}`).hasClass('current-page'))
         // show nav bar for every page that's not in the list
         if (['title', 'day-something', 'day-nothing', 'login', 'signup'].includes(id)) {
             $('nav').fadeOut(speed);
         } else {
             $('nav').fadeIn(speed);
+        }
+        if (['day-something', 'day-nothing'].includes(id) && !$(`#page_${id}`).hasClass('current-page')) {
+            // hardcoded offset
+            $(`#page_${id}`).toggleClass('current-page');
         }
     }, speed);
 }
