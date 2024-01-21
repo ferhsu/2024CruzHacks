@@ -1,14 +1,12 @@
 // We need this to build our post string
-const querystring = require('querystring');
-const http = require('http');
-const fs = require('fs');
+import * as http from 'http'
 
-function PostCode(codestring) {
+function PostCode(codestring, date, echo) {
   // Build the post string from an object
   let post_data = JSON.stringify({
       "name" : codestring,
-      "date" : "2002-09-11",
-      "echo" : "Never Forget"
+      "date" : date,
+      "echo" : echo
   });
   console.log(post_data);
 
@@ -20,7 +18,7 @@ function PostCode(codestring) {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
-          'Content-Length': Buffer.byteLength(post_data)
+          'Content-Length': encodeURI(post_data).split(/%..|./).length - 1
       }
   };
 
@@ -61,5 +59,3 @@ fs.readFile('LinkedList.js', 'utf-8', function (err, data) {
     process.exit(-1);
   }
 });*/
-
-PostCode('George W. Bush');

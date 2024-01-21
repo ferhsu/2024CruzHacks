@@ -1,4 +1,5 @@
 // communicates with backend and ensures data passage is right
+//import { PostCode } from "./post";
 
 let login = false;
 let rm = localStorage.getItem('echoecho_rememberLogin');
@@ -26,6 +27,14 @@ function saveLog(log) {
     console.log(year, month, day);
     console.log(`logging ${log} for ${date}`);
     // TRANSFER TO BACKEND
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:3000/post',
+        data: { "name": 'God', "date": date, "echo": log},
+        success: function(resultData) {
+            alert(resultData);
+         }
+    })
 }
 
 // modify title page
