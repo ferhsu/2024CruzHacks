@@ -40,9 +40,12 @@ function setupDays() {
 let logData = {};
 function getUserLogs() {    // by user id
     // GET LOGS FROM BACKEND
-
-    console.log(logData);
-    setupCalendar();
+    $.get('http://localhost:3000/calendar/'+userid, (data, status) => {
+        console.log(data, status);
+        logData = data;
+        console.log(logData);
+        setupCalendar();
+    })
 }
 
 let months = [
