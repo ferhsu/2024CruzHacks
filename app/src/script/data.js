@@ -31,10 +31,11 @@ function saveLog(log) {
         type: 'POST',
         url: 'http://localhost:3000/post',
         data: { "name": userid, "date": date, "echo": log},
-        success: function(resultData) {
-            alert(resultData);
-         }
-    })
+    }).then((msg) => {
+        getUserLogs()
+        console.log(msg);
+        console.log(userid, date, log);
+    });
 }
 
 // modify title page
@@ -75,9 +76,6 @@ function auth(type) {
         type: 'POST',
         url: 'http://localhost:3000/post',
         data: { "name": userid, "startdate": date},
-        success: function(resultData) {
-            alert(resultData);
-         }
     })
     // clear vals
     $(`#${type}-username`).val('');

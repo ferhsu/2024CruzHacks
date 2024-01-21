@@ -9,8 +9,7 @@ router.post('/post', async (req, res) => {
         if (count > 0) {
             console.log("we already anotha one");
             if (req.body.echo) {
-                const data = new Model.echo({
-                    _id: new mongoose.Types.ObjectId,
+                const data = new Model.echo({   
                     name: req.body.name,
                     date: req.body.date,
                     echo: req.body.echo
@@ -47,7 +46,7 @@ router.post('/post', async (req, res) => {
 //Get all Method
 router.get('/getAll', async (req, res) => {
     try{
-        const data = await Model.find();
+        const data = await Model.echo.find();
         res.json(data)
     }
     catch(error){

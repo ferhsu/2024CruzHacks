@@ -23,7 +23,6 @@ const Echo = new Schema({
     },
     echo: {
         required: true,
-        unique: true,
         type: String
     }
 }, {collection: 'echos'})
