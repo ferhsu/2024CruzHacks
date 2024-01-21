@@ -2,7 +2,11 @@
 //import { PostCode } from "./post";
 
 let userid;
-
+let date = new Date();;
+const year = date.getFullYear();
+const month = date.getMonth() + 1;      // months zero-based
+const day = date.getDate();
+date = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 let login = false;
 let rm = localStorage.getItem('echoecho_rememberLogin');
 if (rm != undefined) {
@@ -22,12 +26,6 @@ $('.page-nav[data-page="title"]').click(function() {
 });
 
 function saveLog(log) {
-    // today's date
-    let date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;      // months zero-based
-    const day = date.getDate();
-    date = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
     // TRANSFER TO BACKEND
     $.ajax({
         type: 'POST',
@@ -73,6 +71,14 @@ function auth(type) {
     titleCheckLogin();
     swapToPage('title');
     userid = user;
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:3000/post',
+        data: { "name": userid, "startdate": date},
+        success: function(resultData) {
+            alert(resultData);
+         }
+    })
     // clear vals
     $(`#${type}-username`).val('');
     $(`#${type}-password`).val('');
