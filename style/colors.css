@@ -1,7 +1,0 @@
-body {
-    --accent: #cb6060;
-}
-
-.good-day {
-    background-color: var(--accent);
-}
