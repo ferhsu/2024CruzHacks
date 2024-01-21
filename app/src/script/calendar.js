@@ -1,3 +1,5 @@
+const { get } = require("mongoose");
+
 // handles calender specifications and uses
 let calendar;   // FullCalendar object
 
@@ -9,11 +11,11 @@ $(document).ready(function() {
     });
     calendar.render();
 
-    colorCalendar();
+    getUserLogs();
     // color calendar when swapping months
-    $('.fc-prev-button').click(setupCalendar);
-    $('.fc-next-button').click(setupCalendar);
-    $('.fc-today-button').click(setupCalendar);
+    $('.fc-prev-button').click(getUserLogs);
+    $('.fc-next-button').click(getUserLogs);
+    $('.fc-today-button').click(getUserLogs);
 
     // we don't need the events
     $('.fc-daygrid-day-events').hide();
@@ -47,6 +49,7 @@ function getUserLogs() {    // by user id
         setupCalendar();
     })
 }
+$('.page-nav[data-page="calendar"]').click(getUserLogs);
 
 let months = [
     'boop',
