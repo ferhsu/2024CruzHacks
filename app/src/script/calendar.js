@@ -37,14 +37,13 @@ function setupDays() {
     });
 }
 
-let logData = {
-    2023 : {
-        12 : {5 : ["food"], 17 : ["pizza"]}
-    },
-    2024 : {
-        1 : {1 : ["things", "other things"]}
-    }
-};
+let logData = {};
+function getUserLogs() {    // by user id
+    // GET LOGS FROM BACKEND
+
+    console.log(logData);
+    setupCalendar();
+}
 
 let months = [
     'boop',

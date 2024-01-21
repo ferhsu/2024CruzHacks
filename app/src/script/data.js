@@ -82,6 +82,10 @@ function auth(type) {
     } else {
         localStorage.removeItem('echoecho_rememberLogin');
     }
+    // get logs for calendar
+    if (type == 'login') {
+        getUserLogs();
+    }
 }
 
 // checkbox functionality
