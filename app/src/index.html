@@ -19,7 +19,7 @@
     <script src="script/log.js" defer></script>
     <!-- backdrop -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
-    <!-- <script src="script/sketch.js" defer></script> -->
+    <script src="script/sketch.js" defer></script>
     <!-- styles -->
     <link rel="stylesheet" href="style/main.css" />
     <link rel="stylesheet" href="style/colors.css" />
@@ -56,6 +56,7 @@
             <button class="page-nav" data-page="calendar">calendar</button>
             <button class="page-nav" data-page="stats">stats</button>
         </div>
+        <div class="blur"></div>
     </div>
 
     <div id="page_login" class="page col">
@@ -73,6 +74,7 @@
             <p class="label subtext">don't forget me</p>
         </div>
         <button id="login-button">submit</button>
+        <div class="blur"></div>
     </div>
 
     <div id="page_signup" class="page col">
@@ -90,12 +92,14 @@
             <p class="label subtext">don't forget me</p>
         </div>
         <button id="signup-button">submit</button>
+        <div class="blur"></div>
     </div>
 
     <div id="page_log" class="page col">
         <p>something good today...</p>
         <p class="subtext">however big, however small, all are valid</p>
         <input id="log" type="text" />
+        <div class="blur"></div>
     </div>
 
     <div id="page_log-complete" class="page col">
@@ -104,10 +108,12 @@
             <button class="page-nav" data-page="log">log another</button>
             <button class="page-nav" data-page="calendar">calendar</button>
         </div>
+        <div class="blur"></div>
     </div>
 
     <div id="page_calendar" class="page row">
         <div id="calendar"></div>
+        <div class="blur"></div>
     </div>
 
     <div id="page_day-something" class="page col">
@@ -119,6 +125,7 @@
         <div class="footer">
             <p>click anywhere to return</p>
         </div>
+        <div class="blur"></div>
     </div>
 
     <div id="page_day-nothing" class="page col">
@@ -127,11 +134,13 @@
         <div class="footer">
             <p>click anywhere to return</p>
         </div>
+        <div class="blur"></div>
     </div>
 
     <div id="page_stats" class="page col">
         <p id="stats-title">happy memories this month...</p>
         <div id="monthlyStats"></div>
+        <div class="blur"></div>
     </div>
 </body>
 </html>

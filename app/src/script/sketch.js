@@ -53,7 +53,7 @@ class Line {
 class Field {
     constructor(yOffset=0) {
         this.xNoiseFreq = 0.0039229599817706405;
-        this.yNoiseFreq = 0.031384283767210024;
+        this.yNoiseFreq = 0.011384283767210024;
         this.xNoiseStep = 1.1;
         this.yNoiseStep = 1.1;
         this.numPoints = 150;
@@ -63,7 +63,7 @@ class Field {
         this.yOffset = yOffset;
         // frame rate counter
         this.counter = 0;
-        this.secondsPerFrame = 4;
+        this.secondsPerFrame = 6;
     }
     
     draw() {
@@ -89,12 +89,7 @@ class Field {
         }
         // draw all the lines in the echo array
         // using color and alpha to slowly make the older lines transluscent
-        let color;
-        if ($('body').hasClass('light')) {
-            color = 0;
-        } else {
-            color = 255;
-        }
+        let color = 100;
         let a = 300;
         for(let i=0;i < this.echoArray.length;i++) {
             stroke(color, color, color, a);

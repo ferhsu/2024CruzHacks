@@ -35,6 +35,9 @@ body {
     background-color: transparent;
     transition-duration: 0.5s;
 }
+.blur {
+    background-color: var(--background);
+}
 
 .good-day {
     background-color: var(--accent);

@@ -7,12 +7,18 @@ body, div {
     box-sizing: border-box;
 }
 body {
+    width: 100vw;
+    height: 100vh;
     margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .page {
-    height: 100vh;
-    width: 100vw;
+    padding: 20px;
+    position: relative;
     align-items: center;
     justify-content: center;
 }
@@ -27,7 +33,7 @@ body {
     flex-direction: row;
 }
 
-p{
+p {
     margin: 0;
     font-size: 25px;
 }
@@ -112,7 +118,9 @@ input {
     animation-timing-function: linear;
     /* pre-animation positioning */
     top: 0px; left: 0px;
-    z-index: -1;
+}
+#echo1 {
+    z-index: 1;
 }
 @keyframes echo {
     0% {top: 0px; left: 0px;}
@@ -177,4 +185,11 @@ input {
     top: 0;
     left: 0;
     z-index: -50;
+}
+.blur {
+    width: 150%;
+    height: 150%;
+    filter: blur(20px);
+    z-index: -5;
+    position: absolute;
 }
