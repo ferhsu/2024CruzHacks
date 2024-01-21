@@ -1,0 +1,96 @@
+body.light {
+    --accent-text: #dc6565;
+    --accent: #e9b4b4;
+    --text: #000000;
+    --half-transparent: #0000006b;
+    --nearly-transparent: #00000025;
+    --transparent: #00000000;
+    --background: #ffffff;
+    /* calendar */
+    --fc-today-bg-color: #e9b4b466;
+    --fc-button-bg-color: var(--nearly-transparent);
+    --fc-button-border-color: var(--transparent);
+    --fc-button-text-color: var(--text);
+    --fc-button-hover-bg-color: #00000023;
+    --fc-button-hover-border-color: var(--transparent);
+}
+
+body.dark {
+    --accent-text: #dc6565;
+    --accent: #622c2c;
+    --text: #dcdcdc;
+    --half-transparent: #ffffff6b;
+    --nearly-transparent: #fcfcfc2d; 
+    --background: #000000;
+    /* calendar */
+    --fc-today-bg-color: #622c2c7f;
+    --fc-button-bg-color: var(--nearly-transparent);
+    --fc-button-border-color: var(--transparent);
+    --fc-button-text-color: var(--text);
+    --fc-button-hover-bg-color: #ffffff23;
+    --fc-button-hover-border-color: var(--transparent);
+}
+
+body {
+    background-color: var(--background);
+    transition-duration: 0.5s;
+}
+
+.good-day {
+    background-color: var(--accent);
+}
+
+/* calendar */
+.fc-day-today {
+    background-color: var(--translucent-accent);
+}
+
+/* text */
+body {
+    color: var(--text);
+}
+#echo2 {
+    color: var(--nearly-transparent);
+}
+.footer p, .subtext {
+    color: var(--half-transparent);
+}
+.accent-text {
+    color: var(--accent-text);
+}
+
+/* interactables */
+input {
+    background-color: transparent;
+    border: 1px solid var(--text);
+}
+input:focus {
+    outline-color: var(--accent);
+}
+button {
+    background-color: var(--nearly-transparent);
+    color: var(--text);
+}
+.checkbox {
+    background-color: var(--nearly-transparent);
+    color: var(--text);
+}
+.checkbox.checked {  /* i did checkboxes manually */
+    background-color: var(--accent);
+}
+
+/* nav bar */
+nav button {
+    background-color: transparent;
+}
+nav {
+    background-color: var(--background);
+}
+#mode-dark {
+    filter: brightness(100%);
+}
+
+/* signup */
+.missing-field {
+    border-color: var(--accent-text);
+}
