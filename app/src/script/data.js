@@ -52,7 +52,9 @@ function titleCheckLogin() {
 $('#login-button').click(function() {
     auth('login');
 });
-
+$('#signup-button').click(function() {
+    auth('signup');
+});
 
 function auth(type) {
     $('.missing-field').toggleClass('missing-field');
