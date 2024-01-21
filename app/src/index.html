@@ -4,17 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>echo...echo</title>
-    <!-- FullCalendar -->
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
     <!-- scripts -->
     <script src="script/lib/jquery-3.7.1.min.js" defer></script>
+    <script src="script/data.js" defer></script>
     <script src="script/calendar.js" defer></script>
+    <script src="script/pages.js" defer></script>
+    <!-- stats -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="script/stats.js" defer></script>
+    <script src="script/log.js" defer></script>
+    <!-- FullCalendar -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js' defer></script>
     <!-- styles -->
     <link rel="stylesheet" href="style/main.css" />
+    <link rel="stylesheet" href="style/colors.css" />
 </head>
 <body>
-    <div id="screen_calendar">
+    <nav class="col">
+        <div class="row">
+            <img id="mode-light" src="img/sun2.png"/>
+            <img id="mode-dark" src="img/moon2.png"/>
+        </div>
+        <button class="page-nav" data-page="log">log</button>
+        <button class="page-nav" data-page="calendar">calendar</button>
+        <button class="page-nav" data-page="stats">stats</button>
+        <button class="page-nav" data-page="title">logout</button>
+    </nav>
+
+    <div id="page_title" class="page current-page col">
+        <div id="title" class="col">
+            <p id="echo1">echo...</p>
+            <p id="echo2">echo</p>
+            <p id="echo-sub" class="accent-text">it's about the small things</p>
+        </div>
+        <div class="user row">
+            <button class="page-nav" data-page="login">login</button>
+            <button class="page-nav" data-page="signup">sign up</button>
+        </div>
+        <div class="activity row">
+            <button class="page-nav" data-page="log">log</button>
+            <button class="page-nav" data-page="calendar">calendar</button>
+            <button class="page-nav" data-page="stats">stats</button>
+        </div>
+    </div>
+
+    <div id="page_login" class="page col">
+        <p>another day... another journey</p>
+        <div class="row">
+            <p class="label">username</p>
+            <input id="login-username" type="text" required />
+        </div>
+        <div class="row">
+            <p class="label">password</p>
+            <input id="login-password" type="password" required />
+        </div>
+        <div class="row">
+            <div class="checkbox" id="login-remember"></div>
+            <p class="label subtext">don't forget me</p>
+        </div>
+        <button id="login-button">submit</button>
+    </div>
+
+    <div id="page_signup" class="page col">
+        <p>welcome... welcome</p>
+        <div class="row">
+            <p class="label">username</p>
+            <input id="signup-username" input="text" required />
+        </div>
+        <div class="row">
+            <p class="label">password</p>
+            <input id="signup-password" input="password" required />
+        </div>
+        <div class="row">
+            <div class="checkbox" id="signup-remember"></div>
+            <p class="label subtext">don't forget me</p>
+        </div>
+        <button id="signup-button">submit</button>
+    </div>
+
+    <div id="page_log" class="page col">
+        <p>something good today...</p>
+        <p class="subtext">however big, however small, all are valid</p>
+        <input id="log" type="text" />
+    </div>
+
+    <div id="page_log-complete" class="page col">
+        <p>thank you :)</p>
+        <div class="row">
+            <button class="page-nav" data-page="log">log another</button>
+            <button class="page-nav" data-page="calendar">calendar</button>
+        </div>
+    </div>
+
+    <div id="page_calendar" class="page row">
         <div id="calendar"></div>
+    </div>
+
+    <div id="page_day-something" class="page col">
+        <div class="row">
+            <p>good things... </p>
+            <p id="good-things-count"></p>
+        </div>
+        <div id="good-things-list" class="col accent-text"></div>
+        <div class="footer">
+            <p>click anywhere to return</p>
+        </div>
+    </div>
+
+    <div id="page_day-nothing" class="page col">
+        <p>nothing logged...</p>
+        <p class="subtext">but that's okay</p>
+        <div class="footer">
+            <p>click anywhere to return</p>
+        </div>
+    </div>
+
+    <div id="page_stats" class="page col">
+        <p id="stats-title">happy memories this month...</p>
+        <div id="monthlyStats"></div>
     </div>
 </body>
 </html>
